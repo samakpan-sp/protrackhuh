@@ -1,25 +1,34 @@
-// $(document).ready(function() {
 
-//     var state = false;
+// Plugin options and our code
+$("#modal_trigger").leanModal({
+    top: 100,
+    overlay: 0.6,
+    closeButton: ".modal_close"
+});
 
-//     //$("input:text:visible:first").focus();
+$(function() {
+    // Calling Login Form
+    $("#login_form").click(function() {
+        $(".social_login").hide();
+        $(".user_login").show();
+        return false;
+    });
 
-//     $('#accesspanel').on('submit', function(e) {
+    // Calling Register Form
+    $("#register_form").click(function() {
+        $(".social_login").hide();
+        $(".user_register").show();
+        $(".header_title").text('Register');
+        return false;
+    });
 
-//         e.preventDefault();
+    // Going back to Social Forms
+    $(".back_btn").click(function() {
+        $(".user_login").hide();
+        $(".user_register").hide();
+        $(".social_login").show();
+        $(".header_title").text('Login');
+        return false;
+    });
+});
 
-//         state = !state;
-
-//         if (state) {
-//             document.getElementById("litheader").className = "poweron";
-//             document.getElementById("go").className = "";
-//             document.getElementById("go").value = "Initializing...";
-//         }else{
-//             document.getElementById("litheader").className = "";
-//             document.getElementById("go").className = "denied";
-//             document.getElementById("go").value = "Access Denied";
-//         }
-
-//     });
-
-// });

@@ -1,402 +1,249 @@
-@import url(https://fonts.googleapis.com/css?family=Audiowide);
-
-::-moz-selection {
-    background: #cc0000;
-    text-shadow: none;
-}
-
-::selection {
-    background: #cc0000;
-    text-shadow: none;
-}
-
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
-  text-rendering: optimizeLegibility;
-}
-
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
-  display: block;
-}
-
-html,body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 body {
-  background: #1b1b1b;
-  color: #FFF;
-  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 12px;
-  line-height: 1;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    color: #666;
 }
 
-.background-wrap {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  overflow: hidden;
+h1 {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 60px;
 }
 
-.background {
-  background: url('https://myrror.co/etc/419062774_1385132057.jpg');
-  background-position: center;
-  background-size: cover;
-  filter: blur(10px);
-  height: 105%;
-  position: relative;
-  width: 105%;
-  right: -2.5%;
-  left: -2.5%;
-  top: -2.5%;
-  bottom: -2.5%;
+#lean_overlay {
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    display: none;
 }
 
-* {
-  box-sizing: border-box;
-  cursor: default;
-  outline: none;
+.popupContainer {
+    position: absolute;
+    width: 330px;
+    height: auto;
+    left: 45%;
+    top: 60px;
+    background: #FFF;
 }
 
-form {
-  background: #111;
-  border: 1px solid #191919;
-  border-radius: .4em;
-  bottom: 0;
-  box-shadow: 0 5px 10px 5px rgba(0,0,0,0.2);
-  height: 280px;
-  left: 0;
-  margin: auto;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 300px;
+#modal_trigger {
+    margin: 40px auto;
+    width: 200px;
+    display: block;
+    border: 1px solid #DDD;
+    border-radius: 4px;
 }
 
-form:after {
-  background: linear-gradient(to right, #111111, #444444, #b6b6b8, #444444, #2F2F2F, #272727);
-  content: "";
-  display: block;
-  height: 1px;
-  left: 50px;
-  position: absolute;
-  top: 0;
-  width: 150px;
+.btn {
+    padding: 10px 20px;
+    background: #F4F4F2;
 }
 
-form:before {
-  border-radius: 50%;
-  box-shadow: 0 0 6px 4px #fff;
-  content: "";
-  display: block;
-  height: 5px;
-  left: 34%;
-  position: absolute;
-  top: -7px;
-  width: 8px;
+.btn_red {
+    background: #ED6347;
+    color: #FFF;
 }
 
-.inset {
-  border-top: 1px solid #19191a;
-  padding: 20px;
+.btn:hover {
+    background: #E4E4E2;
 }
 
-form h1 {
-  font-family: 'Audiowide';
-  border-bottom: 1px solid #000;
-  font-size: 18px;
-  padding: 15px 0;
-  position: relative;
-  text-align: center;
-  text-shadow: 0 1px 0 #000;
+.btn_red:hover {
+    background: #C12B05;
 }
 
-form h1 {
-  color: #FFbb00;
-  font-family: Audiowide;
-  font-weight: normal;
+a.btn {
+    color: #666;
+    text-align: center;
+    text-decoration: none;
 }
 
-form h1.poweron {
-  color: #ffffff;
-  transition: all 0.5s;
-  animation: flicker 1s ease-in-out 1 alternate, neon 1.5s ease-in-out infinite alternate;
-  animation-delay: 0s, 1s;
+a.btn_red {
+    color: #FFF;
 }
 
-form h1:after {
-  position: absolute;
-  width: 250px;
-  height: 180px;
-  content: "";
-  display: block;
-  pointer-events: none;
-  top: 0;
-  margin-left: 138px;
-  transform-style: flat;
-  transform: skew(20deg);
-
-  background: -moz-linear-gradient(top, hsla(0,0%,100%,0.1) 0%, hsla(0,0%,100%,0) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsla(0,0%,100%,0.2)), color-stop(100%,hsla(0,0%,100%,0)));
-  background: -webkit-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
-  background: -o-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
-  background: -ms-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42ffffff', endColorstr='#00ffffff',GradientType=0 );
-  background: linear-gradient(to bottom, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
-
+.one_half {
+    width: 50%;
+    display: block;
+    float: left;
 }
 
-input[type=text], input[type=password] {
-  background: linear-gradient(#1f2124,#27292c);
-  border: 1px solid #222;
-  border-radius: .3em;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
-  color: #FFF;
-  font-size: 13px;
-  margin-bottom: 20px;
-  padding: 8px 5px;
-  width: 100%;
+.one_half.last {
+    width: 45%;
+    margin-left: 5%;
+}
+/* Popup Styles*/
+
+.popupHeader {
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
-input[type=text]:disabled, input[type=password]:disabled {
-  color: #999;
+.popupHeader {
+    background: #F4F4F2;
+    position: relative;
+    padding: 10px 20px;
+    border-bottom: 1px solid #DDD;
+    font-weight: bold;
 }
 
-label[for=remember] {
-  color: #bbb;
-  display: inline-block;
-  height: 20px;
-  line-height: 20px;
-  vertical-align: top;
-  padding: 0 0 0 5px;
+.popupHeader .modal_close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 15px;
+    background: #E4E4E2;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 16px;
 }
 
-.p-container {
-  padding: 0 20px 20px;
+.popupBody {
+    padding: 20px;
+}
+/* Social Login Form */
+
+/* .social_login {} */
+
+.social_login .social_box {
+    display: block;
+    clear: both;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #F4F4F2;
+    overflow: hidden;
 }
 
-.p-container:after {
-  clear: both;
-  content: "";
-  display: table;
+.social_login .icon {
+    display: block;
+    width: 10px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    float: left;
+    color: #FFF;
+    font-size: 16px;
+    text-align: center;
 }
 
-.p-container span {
-  color: #0d93ff;
-  display: block;
-  float: left;
-  padding-top: 8px;
+.social_login .fb .icon {
+    background: #3B5998;
 }
 
-input[type=submit] {
-  background: #fb0;
-  border: 1px solid rgba(0,0,0,0.4);
-  border-radius: .3em;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 10px 10px rgba(255,255,255,0.1);
-  color: #873C00;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: bold;
-  height: 40px;
-  padding: 5px 20px;
-  width: 100%;
+.social_login .google .icon {
+    background: #DD4B39;
 }
 
-.denied {
-  color: white !important;
-  text-shadow: 0 0 1px black;
-  background: #EE0000 !important;
+.social_login .icon_title {
+    display: block;
+    padding: 5px 0;
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
+    color: #777;
 }
 
-input[type=submit]:hover, input[type=submit]:focus {
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -10px 10px rgba(255,255,255,0.1);
+.social_login .social_box:hover {
+    background: #E4E4E2;
 }
 
-input[type=text]:hover:not([disabled]), 
-input[type=text]:focus, 
-input[type=password]:hover:not([disabled]), 
-input[type=password]:focus, 
-label:hover ~ input[type=text], 
-label:hover ~ input[type=password] {
-  background: #27292c;
+.centeredText {
+    text-align: center;
+    margin: 20px 0;
+    clear: both;
+    overflow: hidden;
+    text-transform: uppercase;
 }
 
-input[type="checkbox"] {
-  opacity: 0;
-  background: red;
-  position: absolute;
-  cursor: pointer;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
+.action_btns {
+    clear: both;
+    overflow: hidden;
 }
 
-.checkboxouter {
-  height: 20px;
-  width: 20px;
-  border-radius: 3px;
-  background-color: #000;
-  position: relative;
-  display: inline-block;
-  border: 2px solid #555;
+.action_btns a {
+    display: block;
+}
+/* User Login Form */
+
+.user_login {
+    display: none;
 }
 
-.checkbox {
-  position: absolute;
-  border-bottom: 2px solid #333;
-  border-right: 2px solid #333;
-  background-color: transparent;
-  height: 10px;
-  width: 5px;
-  margin: auto;
-  left: 50%;
-  transform: rotate(45deg);
-  transform-origin: -35% 30%;
-  transition: all 0.2s;
+.user_login label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-input[type="checkbox"]:checked ~ .checkbox {
-  transition: all 0.3s;
-  border-bottom: 2px solid #ffcc00;
-  border-right: 2px solid #ffcc00;
+.user_login input[type="text"],
+.user_login input[type="email"],
+.user_login input[type="password"] {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #DDD;
+    color: #666;
 }
 
-@keyframes neon {
-  from {
-    text-shadow: 
-    0 0 2.5px #fff,
-    0 0 5px #fff,
-    0 0 7.5px #fff,
-    0 0 10px #B6FF00,
-    0 0 17.5px #B6FF00,
-    0 0 20px #B6FF00,
-    0 0 25px #B6FF00,
-    0 0 37.5px #B6FF00;
-  }
-
-  to {
-      text-shadow: 
-      0 0 3px #fff,
-      0 0 7px  #fff,
-      0 0 13px  #fff,
-      0 0 17px  #B6FF00,
-      0 0 33px  #B6FF00,
-      0 0 38px  #B6FF00,
-      0 0 48px #B6FF00,
-      0 0 63px #B6FF00;
-    }
+.user_login input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
 }
 
-@keyframes flicker {
-  0% {
-    text-shadow: 
-    0 0 2.5px #fff,
-    0 0 5px #fff,
-    0 0 7.5px #fff,
-    0 0 10px #B6FF00,
-    0 0 17.5px #B6FF00,
-    0 0 20px #B6FF00,
-    0 0 25px #B6FF00,
-    0 0 37.5px #B6FF00;
-  }
-
-  2% {
-    text-shadow: none;
-  }
-
-  8% {
-    text-shadow: 
-    0 0 2.5px #fff,
-    0 0 5px #fff,
-    0 0 7.5px #fff,
-    0 0 10px #B6FF00,
-    0 0 17.5px #B6FF00,
-    0 0 20px #B6FF00,
-    0 0 25px #B6FF00,
-    0 0 37.5px #B6FF00;
-  }
-
-  10% {
-    text-shadow: none;
-  }
-
-  20% {
-    text-shadow: 
-    0 0 2.5px #fff,
-    0 0 5px #fff,
-    0 0 7.5px #fff,
-    0 0 10px #B6FF00,
-    0 0 17.5px #B6FF00,
-    0 0 20px #B6FF00,
-    0 0 25px #B6FF00,
-    0 0 37.5px #B6FF00;
-  }
-
-  22% {
-    text-shadow: none;
-  }
-
-  24% {
-    text-shadow: 
-    0 0 2.5px #fff,
-    0 0 5px #fff,
-    0 0 7.5px #fff,
-    0 0 10px #B6FF00,
-    0 0 17.5px #B6FF00,
-    0 0 20px #B6FF00,
-    0 0 25px #B6FF00,
-    0 0 37.5px #B6FF00;
-  }
-
-  28% {
-    text-shadow: none;
-  }
-
-  32% {
-    text-shadow: 
-    0 0 2.5px #fff,
-    0 0 5px #fff,
-    0 0 7.5px #fff,
-    0 0 10px #B6FF00,
-    0 0 17.5px #B6FF00,
-    0 0 20px #B6FF00,
-    0 0 25px #B6FF00,
-    0 0 37.5px #B6FF00;
-  }
-
-  34% {
-    text-shadow: none;
-  }
-
-  36% {
-    text-shadow: none;
-  }
-
-  42% {
-    text-shadow: none;
-  }
-
-  100% {
-    text-shadow: 
-    0 0 2.5px #fff,
-    0 0 5px #fff,
-    0 0 7.5px #fff,
-    0 0 10px #B6FF00,
-    0 0 17.5px #B6FF00,
-    0 0 20px #B6FF00,
-    0 0 25px #B6FF00,
+.user_login input[type="checkbox"]+label {
+    float: left;
 }
+
+.user_login .checkbox {
+    margin-bottom: 10px;
+    clear: both;
+    overflow: hidden;
 }
+
+.forgot_password {
+    display: block;
+    margin: 20px 0 10px;
+    clear: both;
+    overflow: hidden;
+    text-decoration: none;
+    color: #ED6347;
+}
+/* User Register Form */
+
+.user_register {
+    display: none;
+}
+
+.user_register label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.user_register input[type="text"],
+.user_register input[type="email"],
+.user_register input[type="password"] {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #DDD;
+    color: #666;
+}
+
+.user_register input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
+}
+
+.user_register input[type="checkbox"]+label {
+    float: left;
+}
+
+.user_register .checkbox {
+    margin-bottom: 10px;
+    clear: both;
+    overflow: hidden;
+}
+
